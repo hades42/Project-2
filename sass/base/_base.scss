@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 56.25%
+  } // Apply this query first cuz <1200px
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  } // then check if that < 900px then apply the 900px
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem = 12, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0; //1rem = 8px, 8/16 = 50%
+  } // then check if that < 900px then apply the 900px
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
